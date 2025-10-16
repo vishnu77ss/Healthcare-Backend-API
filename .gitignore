@@ -1,0 +1,9 @@
+# Dependencies
+/node_modules
+/package-lock.json
+
+# Environment Variables
+.env
+
+# Postman Environment (Contains Tokens/IDs - Keep Private)
+*postman_environment.json

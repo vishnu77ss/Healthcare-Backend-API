@@ -1,0 +1,190 @@
+{
+  "info": {
+    "_postman_id": "b1b5b73a-7751-4953-a44e-178c3221eb49",
+    "name": "Healthcare Backend API - Vishnu Murthy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44123264",
+    "_collection_link": "https://vishnu-0811.postman.co/workspace/6f2b3c51-27ee-4b10-8264-f5bfa1a28895/collection/44123264-b1b5b73a-7751-4953-a44e-178c3221eb49?action=share&source=collection_link&creator=44123264"
+  },
+  "item": [
+    {
+      "name": "1.POST Login Staff (GET Token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Basic Staff\", \"email\": \"staff@clinic.com\", \"password\": \"staff123456\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. POST Add Doctor (Admin Only)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjhmMGE1MzIxZjBiOGY2ZTdiMmY4YTZjIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTc2MDYwMTM5NCwiZXhwIjoxNzYwNjE5Mzk0fQ.DzpdLyYGC7Uk0leaYFRnLPrNG1Nmy2hCvUU_3R6s-bk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Dr. Johnson\", \"specialization\": \"Pediatrics\", \"contactInfo\": \"9876543210\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/doctors",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "doctors"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. POST Add Patient (Staff)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{STAFF_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Maria Lopez\", \"age\": 45, \"gender\": \"Female\", \"contactInfo\": \"111-222-3333\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/patients",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "patients"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. POST Assign Doctor to Patient",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{STAFF_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\t{\"patientId\": \"68f0dc95be64d0c275d868c1\", \"doctorId\": \"68f0db73be64d0c275d868bf\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/mappings",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "mappings"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. GET All Mappings (Populate Test)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{STAFF_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/mappings",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "mappings"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. DELETE Mapping",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{STAFF_TOKEN}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/mappings/68f0dd66be64d0c275d868c5",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "mappings", "68f0dd66be64d0c275d868c5"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
