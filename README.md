@@ -23,7 +23,7 @@ This project is a secure, RESTful backend system built to manage users, doctors,
 
 ## ⚙️ Project Setup and Running Instructions
 
-1.  **Clone the repository:** `git clone [YOUR_REPO_LINK]`
+1.  **Clone the repository:** `git clone https://github.com/vishnu77ss/Healthcare-Backend-API`
 2.  **Navigate to the folder:** `cd healthcare-backend-api`
 3.  **Install dependencies:** `npm install`
 4.  **Configure Environment:** Create a **`.env`** file with the `MONGO_URI`, `JWT_SECRET`, and `ADMIN_EMAIL`.
@@ -33,7 +33,7 @@ The API will run on `http://localhost:5000`.
 
 ## 🧪 Testing and API Documentation
 
-All API endpoints were rigorously tested using **Thunder Client**. A detailed collection is available for review:
+All API endpoints were rigorously tested using **Postman**. A detailed collection is available for review:
 
 - **🔗 Postman Collection Link:** [https://vishnu-0811.postman.co/workspace/Healthcare-API-Assignment~6f2b3c51-27ee-4b10-8264-f5bfa1a28895/collection/44123264-b1b5b73a-7751-4953-a44e-178c3221eb49?action=share&creator=44123264&active-environment=44123264-129467d2-8d6c-415a-8382-22f47e4b7c42]
 
